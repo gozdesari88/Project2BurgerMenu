@@ -11,82 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-    @Html.Action("PartialNavBar", "Default")
-
-    @Html.Action("PartialAbout", "Default")
-
-    @Html.Action("PartialTodaysOffer", "Default")
-
-    @Html.Action("PartialMenu", "Default")
-
-
-    @Html.Action("PartialGallery", "Default")
-
-    <section class="site-section bg-light" id="section-contact">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-12 text-center mb-5 site-animate">
-                    <h2 class="display-4">Bizimle İletişime Geçin</h2>
-                    <div class="row justify-content-center">
-                        <div class="col-md-7">
-                            <p class="lead"></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-7 mb-5 site-animate">
-                    <form action="" method="post">
-                        <div class="form-group">
-                            <label for="name" class="sr-only">Name</label>
-                            <input type="text" class="form-control" id="name" name="Name" placeholder="Adınız">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="sr-only">Email</label>
-                            <input type="text" class="form-control" id="email" name="Email" placeholder="Email Adresiniz">
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="sr-only">Message</label>
-                            <textarea name="MessageDetail" id="message" cols="30" rows="10" class="form-control" placeholder="Mesajınız"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-primary btn-lg" value="Gönder">
-                        </div>
-                    </form>
-                </div>
-                @Html.Action("PartialContact", "Default")
-
-            </div>
-        </div>
-    </section>
-
-    @Html.Action("PartialLocation", "Default")
-
-    @Html.Action("PartialFooter", "Default")
-
-    <!-- Modal -->
-    @Html.Action("PartialReservation", "Default")
-    <!-- END Modal -->
-    <!-- loader -->
-    <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
-
-    @Html.Action("PartialScript", "Default")
-
-
-</body>
-</html>﻿@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-<html lang="en">
-
-@Html.Action("PartialHead", "Default")
-
-<body data-spy="scroll" data-target="#site-navbar" data-offset="200">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
     @Html.Action("PartialNavbar", "Default")
 
     @Html.Action("PartialAbout", "Default")
@@ -95,7 +19,6 @@
 
     @Html.Action("PartialMenu", "Default")
 
-
     @Html.Action("PartialGallery", "Default")
 
     <section class="site-section bg-light" id="section-contact">
@@ -146,7 +69,7 @@
     <!-- loader -->
     <div id="site-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
 
-    @Html.Action("PartialScript", "Default")
+    @Html.Action("PartialScripts", "Default")
 
 
 </body>
