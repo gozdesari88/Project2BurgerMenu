@@ -6,7 +6,8 @@ using System.Web.Mvc;
 
 namespace Project2BurgerMenu.Areas.Admin.Controllers
 {
-    public class AdminLayoutController : Controller
+
+	public class AdminLayoutController : Controller
     {
         // GET: Admin/AdminLayout
         public ActionResult Index()

@@ -10,11 +10,12 @@ namespace Project2BurgerMenu.Controllers
 {
     public class DefaultController : Controller
     {
-       BurgerMenuContext context=new BurgerMenuContext();
+       BurgerMenuContext context = new BurgerMenuContext();
         public ActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(Contact contact)
         {
@@ -25,13 +26,12 @@ namespace Project2BurgerMenu.Controllers
             return RedirectToAction("Index");
         }
 
-
         public PartialViewResult PartialHead()
         {
             return PartialView();
         }
 
-        public PartialViewResult PartialNavbar()
+        public PartialViewResult PartialNavBar()
         {
             return PartialView();
         }
@@ -42,7 +42,19 @@ namespace Project2BurgerMenu.Controllers
             return PartialView(values);
         }
 
-        public PartialViewResult TodaysOffer()
+        public PartialViewResult PartialContact()
+        {
+            var values = context.Abouts.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialLocation()
+        {
+            ViewBag.mapLocation = context.Abouts.Select(x => x.MapLocation).FirstOrDefault();
+            return PartialView();
+        }
+
+        public PartialViewResult PartialTodaysOffer()
         {
             var values = context.Products.Where(x => x.DealOfTheDay == true).ToList();
             return PartialView(values);
@@ -56,8 +68,9 @@ namespace Project2BurgerMenu.Controllers
         public PartialViewResult PartialCategory()
         {
             var values = context.Categories.Take(6).ToList();
-            return PartialView(values);
+            return PartialView("PartialCategory", values);
         }
+
 
         public PartialViewResult PartialGallery()
         {
@@ -70,6 +83,7 @@ namespace Project2BurgerMenu.Controllers
             ViewBag.description = context.Abouts.Select(x => x.Description).FirstOrDefault();
             return PartialView();
         }
+
         [HttpPost]
         public ActionResult PartialSubscribe(Subscribe subscribe)
         {
@@ -84,7 +98,7 @@ namespace Project2BurgerMenu.Controllers
             return PartialView();
         }
 
-        public PartialViewResult PartialScripts()
+        public PartialViewResult PartialScript()
         {
             return PartialView();
         }
@@ -99,21 +113,10 @@ namespace Project2BurgerMenu.Controllers
         public PartialViewResult PartialReservation(Reservation reservation)
         {
             reservation.ReservationStatus = "Onay Bekleniyor";
-            reservation.PeopleCount = 0;
+            //  System.Diagnostics.Debug.WriteLine($"PeopleCount: {reservation.PeopleCount}");
             reservation.ReservationDate = DateTime.Now;
             context.Reservations.Add(reservation);
             context.SaveChanges();
-            return PartialView();
-        }
-        public PartialViewResult PartialContact()
-        {
-            var values = context.Abouts.ToList();
-            return PartialView(values);
-        }
-
-        public PartialViewResult PartialLocation()
-        {
-            ViewBag.mapLocation = context.Abouts.Select(x => x.MapLocation).FirstOrDefault();
             return PartialView();
         }
     }
